@@ -1,253 +1,133 @@
-/* Basic Reset */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: url('background.jpg') no-repeat center center/cover;
+  color: white;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+}
+
+.nav-links li {
+  margin: 0 15px;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+#menu-toggle {
+  display: none;
+}
+
+.menu-icon {
+  display: none;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+}
+
+#home {
+  padding-top: 100px;
+  text-align: center;
+  padding: 100px 20px 20px 20px;
+}
+
+#home h1 {
+  font-size: 48px;
+}
+
+#home span {
+  color: teal;
+}
+
+#home p {
+  font-size: 20px;
+  margin-top: 20px;
+  line-height: 30px;
+}
+
+section {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.skill-bar {
+  background: #ddd;
+  border-radius: 20px;
+  overflow: hidden;
+  margin: 10px 0;
+}
+
+.skill-fill {
+  height: 20px;
+  background: teal;
+  width: 0;
+  animation: fillSkill 2s forwards;
+}
+
+.skill-fill.html { width: 100%; }
+.skill-fill.css { width: 90%; }
+.skill-fill.javascript { width: 50%; }
+.skill-fill.java { width: 55%; }
+.skill-fill.mysql { width: 50%; }
+
+@keyframes fillSkill {
+  from { width: 0; }
+}
+
+@media (max-width: 768px) {
+  .menu-icon {
+      display: block;
   }
-  
-  /* Full background image */
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(2.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    color: #fff;
-    animation: fadeIn 2s ease-in;
-  }
-  
-  /* Navbar */
-  nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 50px;
-    background: rgba(0, 0, 0, 0.7);
-    position: fixed; 
-    top: 0;          
-    width: 100%;     
-    z-index: 1000;   
-  }
-  .logo {
-    font-size: 26px;
-    font-weight: bold;
-  }
-  
+
   .nav-links {
-    list-style: none;
-    display: flex;
-  }
-  
-  .nav-links li {
-    margin-left: 30px;
-  }
-  
-  .nav-links a {
-    text-decoration: none;
-    color: #fff;
-    font-size: 18px;
-    position: relative;
-    transition: color 0.3s ease;
-  }
-  
-  .nav-links a::after {
-    content: "";
-    position: absolute;
-    width: 0%;
-    height: 2px;
-    bottom: -4px;
-    left: 0;
-    background-color: #00ffff;
-    transition: 0.4s;
-  }
-  
-  .nav-links a:hover {
-    color: #00ffff;
-  }
-  
-  .nav-links a:hover::after {
-    width: 100%;
-  }
-  
-  /* Sections */
-  .section {
-    padding: 100px 50px;
-    text-align: center;
-    backdrop-filter: blur(3px);
-    animation: fadeIn 2s ease;
-  }
-  p{
-    font-size: x-large;
-  }
-  
-  h1 {
-    font-size: 50px;
-    margin-bottom: 20px;
-  }
-  
-  h1 span {
-    color: #00ffff;
-  }
-  
-  h2 {
-    font-size: 36px;
-    margin-bottom: 20px;
-    color: aquamarine;
-  }
-  h3{
-    color: cadetblue;
-    font-size: xx-large;
-  }
-  ul {
-    list-style: none;
-    margin-top: 20px;
-  }
-  li{
-    font-size: x-large;
-  }
-  .skill {
-    margin: 20px 0;
-    text-align: left;
-  }
-  
-  .skill h3 {
-    margin-bottom: 10px;
-  }
-  
-  .skill-bar {
-    width: 100%;
-    background: rgba(255, 255, 255, 0.2);
-    height: 20px;
-    border-radius: 10px;
-    overflow: hidden;
-  }
-  
-  .skill-per {
-    height: 100%;
-    background: #00ffff;
-    border-radius: 10px;
-    width: 0;
-    animation: fillBars 2s forwards;
-  }
-  .skill-per.html { animation: htmlFill 2s forwards; animation-delay: 0.2s; }
-.skill-per.css { animation: cssFill 2s forwards; animation-delay: 0.4s; }
-.skill-per.javascript { animation: jsFill 2s forwards; animation-delay: 0.6s; }
-.skill-per.java { animation: javaFill 2s forwards; animation-delay: 0.8s; }
-.skill-per.mysql { animation: mysqlFill 2s forwards; animation-delay: 1s; }
-  
-  /* Specific widths for each skill using custom animation */
-  /* .skill-per.html {
-    animation: htmlFill 2s forwards;
-  }
-  
-  .skill-per.css {
-    animation: cssFill 2s forwards;
-  }
-  
-  .skill-per.javascript {
-    animation: jsFill 2s forwards;
-  }
-  
-  .skill-per.java {
-    animation: javaFill 2s forwards;
-  }
-  
-  .skill-per.mysql {
-    animation: mysqlFill 2s forwards;
-  }
-   */
-  /* Define keyframes for each skill */
-  @keyframes htmlFill {
-    to { width: 100%; }
-  }
-  
-  @keyframes cssFill {
-    to { width: 90%; }
-  }
-  
-  @keyframes jsFill {
-    to { width: 50%; }
-  }
-  
-  @keyframes javaFill {
-    to { width: 55%; }
-  }
-  
-  @keyframes mysqlFill {
-    to { width: 50%; }
-  }
-  
-  /* Footer */
-  footer {
-    text-align: center;
-    padding: 20px;
-    background: rgba(0,0,0,0.7);
-    font-size: 14px;
-  }
-  
-  /* Animations */
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(50px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0px);
-    }
-  }
-  
-  @keyframes backgroundMove {
-    from {
-      background-position: center center;
-    }
-    to {
-      background-position: center top;
-    }
-  }
-  
-  /* Media Queries */
-  @media (max-width: 768px) {
-    nav {
+      display: none;
       flex-direction: column;
-    }
-  
-    .nav-links {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .nav-links li {
-      margin: 15px 0;
-    }
-  
-    h1 {
-      font-size: 36px;
-    }
-  
-    h2 {
+      background: rgba(0, 0, 0, 0.9);
+      position: absolute;
+      top: 70px;
+      right: 20px;
+      width: 150px;
+      border-radius: 10px;
+  }
+
+  #menu-toggle:checked + .menu-icon + .nav-links {
+      display: flex;
+  }
+
+  #home h1 {
       font-size: 28px;
-    }
   }
-  
-  @media (max-width: 480px) {
-    nav {
-      padding: 15px 20px;
-    }
-  
-    .section {
-      padding: 70px 20px;
-    }
+
+  #home p {
+      font-size: 16px;
+      line-height: 24px;
   }
-  body {
-    animation: fadeIn 2s ease-in;
-  }
-  
-  @keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
-  }
+}
